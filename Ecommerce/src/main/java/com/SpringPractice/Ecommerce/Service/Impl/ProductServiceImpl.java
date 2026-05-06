@@ -36,6 +36,18 @@ public class ProductServiceImpl implements ProductService {
         return maptoDto(updateProduct);
     }
 
+    @Override
+    public List<productDTO> getMostExpensive(){
+        List<Products> expProduct = ProductRepository.findMostExpensiveprod();
+        List<productDTO> expProductList = new ArrayList<>();
+
+        for (Products products : expProduct ){
+            expProductList.add(maptoDto(products));
+        }
+
+        return expProductList;
+    }
+
 
     @Override
     public void deleteProduct(Products product){
@@ -55,7 +67,7 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     public List<productDTO> getAllProductsByName(String Name){
-        List<Products> products = ProductRepository.findProdByName(Name);
+        List<Products> products = ProductRepository.findProductByName(Name);
         List<productDTO> productList = new ArrayList<>();
         for(Products product : products){
             productList.add(maptoDto(product));

@@ -16,5 +16,6 @@ public interface ProductService {
 
     List<productDTO> getAllProducts();
     List<productDTO> getAllProductsByName(String Name);
+    List<productDTO> getMostExpensive();
 
 }

@@ -11,14 +11,17 @@ import java.util.List;
 public interface productRepository extends JpaRepository<Products, Long> {
 
     //custome finder methods
-    List<Products> findByprodName(String prodName);
+    List<Products> findByProdName(String prodName);
+
+    @Query("SELECT p FROM Products p WHERE p.prodPrice = (SELECT MAX(p2.prodPrice) FROM Products p2)")
+    List<Products> findMostExpensiveprod();
 
     //JPQL
     @Query("select e from Products e where e.prodName = :n")
     List<Products> findProductByName(@Param("n") String name);
 
     //native Query ;
-    @Query(value = "SELECT * FROM products WHERE prodName = :n", nativeQuery = true)
+    @Query(value = "SELECT * FROM products WHERE prod_name = :n", nativeQuery = true)
     List<Products> findProdByName(@Param("n") String name);
 
 }
