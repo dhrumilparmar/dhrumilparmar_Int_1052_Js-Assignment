@@ -72,4 +72,22 @@ public class PassengerController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+
+    @GetMapping("/nationality/{nationality}")
+    public ResponseEntity<List<PassengerDataResponseDto>>
+    getPassengerByNationality(@PathVariable String nationality) {
+
+        try {
+            System.out.println("i am called");
+
+            return ResponseEntity.ok(
+                    this.passService.getPassengerByNationality(nationality)
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }

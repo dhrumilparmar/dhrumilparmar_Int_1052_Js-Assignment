@@ -19,12 +19,11 @@ public class ServiceImpl implements passengersService {
 
     public PassengerDataResponseDto findByFullName(String full_name) {
         List<Passengers> passengers = this.passengerReposoitory.findByfull_name(full_name);
-        List<PassengerDataResponseDto> passengerList = new ArrayList();
+        List<PassengerDataResponseDto> passengerList = new ArrayList<>();
 
         for(Passengers passenger : passengers) {
             passengerList.add(this.maptoDto(passenger));
         }
-
         return (PassengerDataResponseDto)passengerList.get(0);
     }
 
@@ -53,8 +52,8 @@ public class ServiceImpl implements passengersService {
         return allPassengerList;
     }
 
-    public List<PassengerDataResponseDto> getPassengerBynationality(String nationality) {
-        List<Passengers> passengers = this.passengerReposoitory.findBynationality(nationality);
+    public List<PassengerDataResponseDto> getPassengerByNationality(String nationality) {
+        List<Passengers> passengers = this.passengerReposoitory.findNationality(nationality);
         List<PassengerDataResponseDto> passengerNationalityList = new ArrayList();
 
         for(Passengers passe : passengers) {

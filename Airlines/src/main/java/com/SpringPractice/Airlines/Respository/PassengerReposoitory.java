@@ -17,12 +17,9 @@ public interface PassengerReposoitory extends JpaRepository<Passengers, Long> {
     @Query("select p from Passengers p where p.name=:n")
     List<Passengers> findByfull_name(@Param("n") String full_Name);
 
-    @Query("select p from Passengers p where p.nationality=:n")
-    List<Passengers> findBynationality(@Param("n") String nationality);
+    @Query(value = "select p from Passengers p where p.nationality=:n")
+    List<Passengers> findNationality(@Param("n") String nationality);
 
-    @Query(
-            value = "select email from passengers",
-            nativeQuery = true
-    )
+    @Query(value = "select email from passengers", nativeQuery = true)
     List<Passengers> findemail();
 }

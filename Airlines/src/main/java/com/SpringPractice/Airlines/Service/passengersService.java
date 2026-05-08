@@ -16,5 +16,5 @@ public interface passengersService {
 
     List<PassengerDataResponseDto> getAllPassengers();
 
-    List<PassengerDataResponseDto> getPassengerBynationality(String nationality);
+    List<PassengerDataResponseDto> getPassengerByNationality(String nationality);
 }

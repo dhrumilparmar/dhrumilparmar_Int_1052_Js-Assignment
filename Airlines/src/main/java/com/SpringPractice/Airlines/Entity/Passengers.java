@@ -20,6 +20,7 @@ public class Passengers {
     private String name;
     private String email;
     private String nationality;
+    private String Address;
 
     public Long getId() {
         return this.id;
@@ -51,5 +52,13 @@ public class Passengers {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
     }
 }
